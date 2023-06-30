@@ -3,7 +3,10 @@ using Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var startup = new Startup(builder.Configuration);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
+                       throw new InvalidOperationException("Connection string 'DefaultConnection' not found!");
+
+var startup = new Startup(builder.Configuration, connectionString);
 startup.ConfigureService(builder.Services);
 
 var app = builder.Build();

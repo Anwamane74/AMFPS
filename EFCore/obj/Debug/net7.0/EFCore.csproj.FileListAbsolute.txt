@@ -1,0 +1,14 @@
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/EFCore.csproj.AssemblyReference.cache
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/EFCore.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/EFCore.AssemblyInfoInputs.cache
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/EFCore.AssemblyInfo.cs
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/EFCore.csproj.CoreCompileInputs.cache
+/Users/anwamane/Devs/AMFPS/EFCore/bin/Debug/net7.0/EFCore.deps.json
+/Users/anwamane/Devs/AMFPS/EFCore/bin/Debug/net7.0/EFCore.runtimeconfig.json
+/Users/anwamane/Devs/AMFPS/EFCore/bin/Debug/net7.0/EFCore.dll
+/Users/anwamane/Devs/AMFPS/EFCore/bin/Debug/net7.0/EFCore.pdb
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/EFCore.dll
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/refint/EFCore.dll
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/EFCore.pdb
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/EFCore.genruntimeconfig.cache
+/Users/anwamane/Devs/AMFPS/EFCore/obj/Debug/net7.0/ref/EFCore.dll
