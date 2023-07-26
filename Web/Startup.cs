@@ -1,8 +1,13 @@
+using System.Reflection;
+using AutoMapper.Internal;
 using EFCore;
 using EFCore.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
+using Services.Configuration;
+using Services.Features.UserSecurity;
 using Web.Configuration;
 using Web.Db;
 
@@ -23,9 +28,21 @@ public class Startup
     {
         services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(_connectionString));
         
-        services.AddIdentity<User, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+        services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = true;
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
         services.AddIdentityServer().AddApiAuthorization<User, ApplicationDbContext>();
+
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining(typeof(IUseCase)));
+        services.AddAutoMapper(cfg => cfg.Internal().MethodMappingEnabled = false, typeof(MappingProfile).Assembly);
         
         services.AddControllers();
         services.AddEndpointsApiExplorer();
@@ -41,6 +58,8 @@ public class Startup
 
     public void Configure(WebApplication app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
     {
+        CreateDbIfNotExists(app);
+        
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
@@ -59,8 +78,6 @@ public class Startup
         app.UseAuthentication();
         app.MapControllers();
 
-        CreateDbIfNotExists(app);
-        
         app.Run();
     }
 

@@ -1,0 +1,14 @@
+
+.idea/
+
+EFCore/obj/
+
+Services/bin/
+
+Services/obj/
+
+Web/bin/
+
+Web/Db/Dev/
+
+Web/obj/

@@ -7,4 +7,12 @@
         <OutputType>Library</OutputType>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EFCore\EFCore.csproj" />
+    </ItemGroup>
+
 </Project>
